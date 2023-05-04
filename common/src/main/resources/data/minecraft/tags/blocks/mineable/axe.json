@@ -1,0 +1,19 @@
+{
+    "replace": false,
+    "values": [
+        "wildscapes:coconut",
+        "wildscapes:palm_log",
+        "wildscapes:palm_wood",
+        "wildscapes:stripped_palm_log",
+        "wildscapes:stripped_palm_wood",
+        "wildscapes:palm_planks",
+        "wildscapes:palm_stairs",
+        "wildscapes:palm_slab",
+        "wildscapes:palm_fence",
+        "wildscapes:palm_fence_gate",
+        "wildscapes:palm_door",
+        "wildscapes:palm_trapdoor",
+        "wildscapes:palm_button",
+        "wildscapes:palm_pressure_plate"
+    ]
+}

@@ -1,0 +1,26 @@
+
+{
+  "parent": "wildscapes:item/musket_model/musket_base",
+  "overrides": [
+    {
+      "predicate": {
+        "loading": 1,
+        "loading_progress": 0.0
+      },
+      "model": "wildscapes:item/musket_model/musket_loading_4"
+    },
+    {
+      "predicate": {
+        "loading": 1,
+        "loading_progress": 1.0
+      },
+      "model": "wildscapes:item/musket_model/musket_loading_5"
+    },
+    {
+      "predicate": {
+        "loaded": 1
+      },
+      "model": "wildscapes:item/musket_model/musket_primed"
+    }
+  ]
+}

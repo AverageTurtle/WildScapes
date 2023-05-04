@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "wildscapes:block/palm_pressure_plate"
+    },
+    "powered=true": {
+      "model": "wildscapes:block/palm_pressure_plate_down"
+    }
+  }
+}

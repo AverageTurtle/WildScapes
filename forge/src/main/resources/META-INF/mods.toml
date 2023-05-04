@@ -4,30 +4,30 @@ loaderVersion = "[45,)"
 license = "Insert License Here"
 
 [[mods]]
-modId = "examplemod"
+modId = "wildscapes"
 version = "${version}"
-displayName = "Example Mod"
+displayName = "Wild Scapes"
 authors = "Me!"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+
 '''
 #logoFile = ""
 
-[[dependencies.examplemod]]
+[[dependencies.wildscapes]]
 modId = "forge"
 mandatory = true
 versionRange = "[45,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.wildscapes]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.19.4,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.wildscapes]]
 modId = "architectury"
 mandatory = true
 versionRange = "[8.1.79,)"

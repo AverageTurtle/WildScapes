@@ -1,0 +1,10 @@
+{
+    "coconut_hit": {
+      "subtitle": "subtitles.wildscapes.coconut_hit",
+      "sounds": [
+        "wildscapes:coconut_hit_1",
+        "wildscapes:coconut_hit_2",
+        "wildscapes:coconut_hit_3"
+      ]
+    }
+}

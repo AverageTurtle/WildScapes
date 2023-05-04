@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "wildscapes:palm_log",
+        "wildscapes:palm_wood",
+        "wildscapes:stripped_palm_log",
+        "wildscapes:stripped_palm_wood"
+    ]
+}

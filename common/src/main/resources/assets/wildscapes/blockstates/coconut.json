@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "face=ceiling": {
+      "model": "wildscapes:block/coconut_ceiling"
+    },
+    "face=floor": {
+      "model": "wildscapes:block/coconut_floor"
+    },
+    "face=wall,facing=north": {
+      "model": "wildscapes:block/coconut_wall"
+    },
+    "face=wall,facing=east": {
+      "model": "wildscapes:block/coconut_wall",
+      "y": 90
+    },
+    "face=wall,facing=south": {
+      "model": "wildscapes:block/coconut_wall",
+      "y": 180
+    },
+    "face=wall,facing=west": {
+      "model": "wildscapes:block/coconut_wall",
+      "y": 270
+    }
+  }
+}

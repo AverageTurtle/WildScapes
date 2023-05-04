@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "wooden_button",
+	"ingredients": [
+		{
+			"item": "wildscapes:palm_planks"
+		}
+	],
+	"result": {
+		"item": "wildscapes:palm_button"
+	}
+}

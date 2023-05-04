@@ -1,0 +1,36 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+	  {
+		"rolls": 1,
+		"entries": [
+		  {
+			"type": "minecraft:item",
+			"name": "wildscapes:coconut_slice",
+			"functions": [
+			  {
+				"function": "minecraft:set_count",
+				"count": {
+				  "min": 4,
+				  "max": 6
+				}
+			  }
+			],
+			"conditions": [
+			  {
+				"condition": "minecraft:match_tool",
+				"predicate": {
+				  "tag": "minecraft:axes"
+				}
+			  }
+			]
+		  },
+		  {
+			"type": "minecraft:item",
+			"name": "wildscapes:coconut"
+		  }
+		]
+	  }
+	]
+  }
+  

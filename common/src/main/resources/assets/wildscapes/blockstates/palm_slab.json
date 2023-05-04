@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildscapes:block/palm_slab"
+    },
+    "type=double": {
+      "model": "wildscapes:block/palm_planks"
+    },
+    "type=top": {
+      "model": "wildscapes:block/palm_slab_top"
+    }
+  }
+}
