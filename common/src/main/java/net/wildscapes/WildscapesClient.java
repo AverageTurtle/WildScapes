@@ -12,9 +12,10 @@ import net.wildscapes.content.Beach;
 
 public class WildscapesClient {
     public static void init() {
-        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_DOOR.get(), RenderType.cutout());
-        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_TRAPDOOR.get(), RenderType.cutout());
-        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_LEAVES.get(), RenderType.cutoutMipped());
+        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_DOOR, RenderType.cutout());
+        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_TRAPDOOR, RenderType.cutout());
+        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_LEAVES, RenderType.cutoutMipped());
+        WildscapesPlatform.setRenderLayer(Beach._Blocks.PALM_SAPLING, RenderType.cutoutMipped());
 
         WildscapesPlatform.registerEntityRenderer(Beach.FALLING_COCONUT.get(), FallingBlockRenderer::new);
     }
@@ -24,7 +25,7 @@ public class WildscapesClient {
                 (blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null
                         ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos)
                         : FoliageColor.getDefaultColor(),
-                Beach._Blocks.PALM_LEAVES.get()
+                Beach._Blocks.PALM_LEAVES
         );
     }
     public static void registerItemColors(ItemColors itemColors, BlockColors blockColors) {
@@ -33,7 +34,7 @@ public class WildscapesClient {
                     BlockState blockState = ((BlockItem)itemStack.getItem()).getBlock().defaultBlockState();
                     return blockColors.getColor(blockState, null, null, i);
                 },
-                Beach._Blocks.PALM_LEAVES.get()
+                Beach._Blocks.PALM_LEAVES
         );
     }
 }

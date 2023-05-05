@@ -1,12 +1,10 @@
 {
+  "itemGroup.wildscapes.wildscapes": "Wildscapes",
   "subtitles.wildscapes.coconut_hit": "Coconut Bonks Head",
+
   "entity.wildscapes.palm_boat": "Palm Boat",
   "entity.wildscapes.palm_chest_boat": "Palm Chest Boat",
-  "entity.wildscapes.minie_ball": "Minié Ball",
   "entity.wildscapes.falling_coconut": "Coconut",
-
-  "item.wildscapes.musket": "Musket",
-  "item.wildscapes.minie_ball": "Minié Ball",
 
   "item.wildscapes.coconut": "Coconut",
   "item.wildscapes.coconut_slice": "Coconut Slice",
@@ -29,8 +27,6 @@
   "item.wildscapes.palm_hanging_sign": "Palm Hanging Sign",
   "item.wildscapes.palm_boat": "Palm Boat",
   "item.wildscapes.palm_chest_boat": "Palm Chest Boat",
-
-
 
   "block.wildscapes.coconut": "Coconut",
   "block.wildscapes.palm_leaves": "Palm Leaves",
