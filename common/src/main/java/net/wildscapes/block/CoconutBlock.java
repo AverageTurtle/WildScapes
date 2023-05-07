@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -17,10 +18,11 @@ import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.wildscapes.content.Beach;
 import net.wildscapes.entity.FallingCoconutEntity;
 
 @SuppressWarnings("deprecation")
-public class CoconutBlock extends FaceAttachedHorizontalDirectionalBlock  {
+public class CoconutBlock extends FaceAttachedHorizontalDirectionalBlock implements BonemealableBlock {
     protected static final VoxelShape FLOOR_SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 12.0, 14.0);
     protected static final VoxelShape CEILING_SHAPE = Block.box(2.0, 4.0, 2.0, 14.0, 16.0, 14.0);
 
@@ -90,4 +92,18 @@ public class CoconutBlock extends FaceAttachedHorizontalDirectionalBlock  {
         return blockState.isAir() || blockState.is(BlockTags.FIRE) || material.isLiquid() || blockState.canBeReplaced();
     }
 
+    @Override
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean bl) {
+        return true;
+    }
+
+    @Override
+    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+        return true;
+    }
+
+    @Override
+    public void performBonemeal(ServerLevel level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+        level.setBlock(blockPos, Beach.PALM_SAPLING.get().defaultBlockState(), 0);
+    }
 }

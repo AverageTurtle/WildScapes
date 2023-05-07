@@ -1,5 +1,6 @@
 package net.wildscapes.world.tree;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.wildscapes.content.Beach;
-import org.spongepowered.include.com.google.common.collect.ImmutableList;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -71,7 +71,7 @@ public class SlantedTrunkPlacer extends TrunkPlacer {
 
     private void attemptPlaceCoconut(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, BlockPos pos, Direction placeDir) {
         if(world.isStateAtPosition(pos, blockState -> blockState == Blocks.AIR.defaultBlockState())) {
-            replacer.accept(pos, Beach._Blocks.COCONUT.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, placeDir).setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL));
+            replacer.accept(pos, Beach.COCONUT.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, placeDir).setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL));
         }
     }
 }

@@ -1,6 +1,7 @@
 package net.wildscapes.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -59,7 +60,7 @@ public class FallingCoconutEntity extends FallingBlockEntity {
                 shouldPlaySound.set(true);
         });
         if(shouldPlaySound.get()) {
-            //level.playSound(null, this.blockPosition(), SISounds.COCONUT_HIT, SoundCategory.BLOCKS, 1f, 1f);
+            level.playSound(this, this.blockPosition(), Beach.COCONUT_HIT_SOUND.get(), SoundSource.BLOCKS, 1f, 1f);
         }
 
         return false;

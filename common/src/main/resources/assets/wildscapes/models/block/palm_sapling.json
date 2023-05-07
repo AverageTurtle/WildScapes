@@ -1,6 +1,6 @@
 {
 	"ambientocclusion": false,
-	"render_later": "cutout",
+	"render_type": "cutout",
 	"textures": {
 		"1": "wildscapes:block/palm_sapling",
 		"2": "wildscapes:block/coconut",

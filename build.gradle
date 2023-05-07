@@ -34,12 +34,21 @@ allprojects {
     version = rootProject.mod_version
     group = rootProject.maven_group
 
+    def apikeyPropertiesFile = rootProject.file("secret/secrets.properties");
+    def apikeyProperties = new Properties()
+    apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
     repositories {
-        // Add repositories to retrieve artifacts from in here.
-        // You should only use this when depending on other mods because
-        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-        // for more information about repositories.
+        maven {
+            url = uri("https://maven.pkg.github.com/Lemonszz/taniwha")
+            credentials {
+                username = apikeyProperties['gpr.user'] ?: System.getenv("USERNAME")
+                password = apikeyProperties['gpr.key'] ?: System.getenv("TOKEN")
+            }
+        }
+        maven { url "https://maven.shedaniel.me" }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.terraformersmc.com/" }
     }
 
     tasks.withType(JavaCompile) {
