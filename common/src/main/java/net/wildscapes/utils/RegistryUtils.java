@@ -7,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -26,7 +27,7 @@ public class RegistryUtils {
 
 //TODO move to event system similar to fabric for creative tabs
     @SuppressWarnings("UnstableApiUsage")
-    public static RegistrySupplier<Block> registerBlock(String id, Supplier<Block> block, CreativeTabRegistry.TabSupplier tab) {
+    public static RegistrySupplier<Block> registerBlock(String id, Supplier<Block> block, RegistrySupplier<CreativeModeTab> tab) {
         RegistrySupplier<Block> supplier = BLOCKS.register(id, block);
         ITEMS.register(id, () -> new BlockItem(supplier.get(), new Item.Properties().arch$tab(tab)));
         return supplier;

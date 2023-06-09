@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.wildscapes.content.Beach;
@@ -87,9 +86,9 @@ public class CoconutBlock extends FaceAttachedHorizontalDirectionalBlock impleme
     protected int getDelayAfterPlace() {
         return 2;
     }
+
     public static boolean isFree(BlockState blockState) {
-        Material material = blockState.getMaterial();
-        return blockState.isAir() || blockState.is(BlockTags.FIRE) || material.isLiquid() || blockState.canBeReplaced();
+        return blockState.isAir() || blockState.is(BlockTags.FIRE) || blockState.liquid() || blockState.canBeReplaced();
     }
 
     @Override

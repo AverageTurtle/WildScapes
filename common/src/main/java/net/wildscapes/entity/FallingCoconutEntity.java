@@ -36,31 +36,29 @@ public class FallingCoconutEntity extends FallingBlockEntity {
         this.zo = z;
         this.setStartPos(this.blockPosition());
     }
-
     @Override
     public boolean causeFallDamage(float f, float g, DamageSource damageSource) {
         int fall = Mth.ceil(fallDistance - 1.0F);
         if(fall < 0)
             return false;
-        Predicate<Entity> predicate;
+
+        Predicate<Entity> predicate = EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
         DamageSource damageSource2;
         if (this.getBlockState().getBlock() instanceof Fallable landingBlock) {
-            predicate = landingBlock.getHurtsEntitySelector();
             damageSource2 = landingBlock.getFallDamageSource(this);
         } else {
-            predicate = EntitySelector.NO_SPECTATORS;
             damageSource2 = this.damageSources().fallingBlock(this);
         }
 
         float damage = (float)Math.min(Mth.floor((float)fall * 1.0), 10.0);
 
         AtomicBoolean shouldPlaySound = new AtomicBoolean(false);
-        this.level.getEntities(this, this.getBoundingBox(), predicate).forEach((entity) -> {
+        this.level().getEntities(this, this.getBoundingBox(), predicate).forEach((entity) -> {
             if(entity.hurt(damageSource2, damage) && entity instanceof LivingEntity)
                 shouldPlaySound.set(true);
         });
         if(shouldPlaySound.get()) {
-            level.playSound(this, this.blockPosition(), Beach.COCONUT_HIT_SOUND.get(), SoundSource.BLOCKS, 1f, 1f);
+            level().playSound(this, this.blockPosition(), Beach.COCONUT_HIT_SOUND.get(), SoundSource.BLOCKS, 1f, 1f);
         }
 
         return false;

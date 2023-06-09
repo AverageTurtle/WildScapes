@@ -17,8 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.wildscapes.Wildscapes;
 import net.wildscapes.block.CoconutBlock;
 import net.wildscapes.block.ExtendedDecayRangeLeavesBlock;
@@ -33,16 +32,14 @@ import party.lemons.taniwha.block.WoodBlockFactory;
 
 @SuppressWarnings({"unused", "UnstableApiUsage"})
 public class Beach {
-    //BLOCKS
-    public static final RegistrySupplier<Block>  COCONUT = RegistryUtils.registerBlock("coconut", () -> new CoconutBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(0.2f, 3.0f).noOcclusion()), Wildscapes.CREATIVE_MODE_TAB);
+    public static final RegistrySupplier<Block>  COCONUT = RegistryUtils.registerBlock("coconut", () -> new CoconutBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.2f, 3.0f).noOcclusion()), Wildscapes.CREATIVE_MODE_TAB);
     public static final RegistrySupplier<Item> COCONUT_SLICE = RegistryUtils.registerItem("coconut_slice", () -> new Item(new Item.Properties().food(Foods.MELON_SLICE).arch$tab(Wildscapes.CREATIVE_MODE_TAB)));
 
     public static final RegistrySupplier<Block>   PALM_LEAVES = RegistryUtils.registerBlock("palm_leaves", () -> new ExtendedDecayRangeLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)), Wildscapes.CREATIVE_MODE_TAB);
-    public static final RegistrySupplier<Block>   PALM_SAPLING = RegistryUtils.registerBlock("palm_sapling", () -> new PalmSaplingBlock(new PalmTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), Wildscapes.CREATIVE_MODE_TAB);
-    public static final RegistrySupplier<Block>   POTTED_PALM_SAPLING = RegistryUtils.registerBlock("potted_palm_sapling", () -> new FlowerPotBlock(PALM_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
+    public static final RegistrySupplier<Block>   PALM_SAPLING = RegistryUtils.registerBlock("palm_sapling", () -> new PalmSaplingBlock(new PalmTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), Wildscapes.CREATIVE_MODE_TAB);
+    public static final RegistrySupplier<Block>   POTTED_PALM_SAPLING = RegistryUtils.registerBlock("potted_palm_sapling", () -> new FlowerPotBlock(PALM_SAPLING.get(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().noOcclusion()));
 
-    public static WoodBlockFactory PALM_WOOD_INFO = new WoodBlockFactory(Wildscapes.MOD_ID, "palm", Wildscapes.CREATIVE_MODE_TAB).all(()->Boats.PALM_BOAT).register(RegistryUtils.BLOCKS, RegistryUtils.ITEMS);
-
+    public static final WoodBlockFactory PALM_WOOD_INFO = new WoodBlockFactory(Wildscapes.MOD_ID, "palm", Wildscapes.CREATIVE_MODE_TAB).all(()->Boats.PALM_BOAT).register(RegistryUtils.BLOCKS, RegistryUtils.ITEMS);
     public static final RegistrySupplier<SoundEvent>   COCONUT_HIT_SOUND = RegistryUtils.SOUND_EVENTS.register("palm_button", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Wildscapes.MOD_ID, "coconut_hit")));
 
     public static final RegistrySupplier<EntityType<FallingCoconutEntity>> FALLING_COCONUT = RegistryUtils.ENTITIES.register("falling_coconut",
@@ -54,7 +51,7 @@ public class Beach {
     public static final RegistrySupplier<TrunkPlacerType<SlantedTrunkPlacer>> SLANTED_TRUNK_PLACER = RegistryUtils.TRUNK_PLACER_TYPES.register("slanted_trunk_placer",
             () -> new TrunkPlacerType<>(SlantedTrunkPlacer.CODEC));
 
-    public static TagKey<Biome> HAS_PALM_TREES = TagKey.create(Registries.BIOME, new ResourceLocation(Wildscapes.MOD_ID, "has_palm_trees"));
+    public static final TagKey<Biome> HAS_PALM_TREES = TagKey.create(Registries.BIOME, new ResourceLocation(Wildscapes.MOD_ID, "has_palm_trees"));
 
     public static void setup() {
         ResourceLocation id = Boats.PALM_BOAT.id;
